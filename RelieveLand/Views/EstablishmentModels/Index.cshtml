@@ -1,0 +1,135 @@
+﻿@model IEnumerable<RelieveLand.Models.EstablishmentModels>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BoroughPrimary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BoroughSecondary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoursOfOper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SingleStall)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HandDryer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChangingStation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseNeeded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HandicapStall)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HygieneProducts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FamilyRestroom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Extras)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OverallAvg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OdorAvg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppearAvg)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoroughPrimary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoroughSecondary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoursOfOper)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SingleStall)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HandDryer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChangingStation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseNeeded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HandicapStall)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HygieneProducts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FamilyRestroom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Extras)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OverallAvg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OdorAvg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppearAvg)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EstID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EstID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EstID })
+        </td>
+    </tr>
+}
+
+</table>

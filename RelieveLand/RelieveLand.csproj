@@ -169,8 +169,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EstablishmentModelsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReviewModelsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -178,6 +180,7 @@
     <Compile Include="Models\EstablishmentModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\RelieveLandContext.cs" />
     <Compile Include="Models\ReviewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -251,6 +254,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ReviewModels\Create.cshtml" />
+    <Content Include="Views\ReviewModels\Delete.cshtml" />
+    <Content Include="Views\ReviewModels\Details.cshtml" />
+    <Content Include="Views\ReviewModels\Edit.cshtml" />
+    <Content Include="Views\ReviewModels\Index.cshtml" />
+    <Content Include="Views\EstablishmentModels\Create.cshtml" />
+    <Content Include="Views\EstablishmentModels\Delete.cshtml" />
+    <Content Include="Views\EstablishmentModels\Details.cshtml" />
+    <Content Include="Views\EstablishmentModels\Edit.cshtml" />
+    <Content Include="Views\EstablishmentModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

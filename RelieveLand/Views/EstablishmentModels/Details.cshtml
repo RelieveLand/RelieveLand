@@ -1,0 +1,162 @@
+﻿@model RelieveLand.Models.EstablishmentModels
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EstablishmentModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BoroughPrimary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BoroughPrimary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BoroughSecondary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BoroughSecondary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoursOfOper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoursOfOper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SingleStall)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SingleStall)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HandDryer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HandDryer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChangingStation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChangingStation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseNeeded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseNeeded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HandicapStall)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HandicapStall)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HygieneProducts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HygieneProducts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilyRestroom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FamilyRestroom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Extras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Extras)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OverallAvg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OverallAvg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OdorAvg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdorAvg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppearAvg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppearAvg)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EstID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

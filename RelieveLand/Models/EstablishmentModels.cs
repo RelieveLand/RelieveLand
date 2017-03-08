@@ -14,6 +14,8 @@ namespace RelieveLand.Models
 
         [DisplayName("Establishment Name")]
         public string EstName { get; set; }
+        public virtual ICollection<ReviewModels> Reviews { get; set; }
+
         [DisplayName("Link to image of establishment or restroom")]
         public string EstImage { get; set; }
         [DisplayName("Establishment Address")]
@@ -49,7 +51,5 @@ namespace RelieveLand.Models
         public float OdorAvg { get; set; }
         [DisplayName("Appearance Average")]
         public float AppearAvg { get; set; }
-
-        public virtual ICollection<EstablishmentModels> Establishments { get; set; }
     }
 }

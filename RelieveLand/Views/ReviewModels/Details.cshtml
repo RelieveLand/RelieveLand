@@ -1,0 +1,66 @@
+﻿@model RelieveLand.Models.ReviewModels
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ReviewModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EstablishmentModels.EstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstablishmentModels.EstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReviewTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReviewTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OverallRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OverallRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OdorRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdorRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppearRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppearRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReviewID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

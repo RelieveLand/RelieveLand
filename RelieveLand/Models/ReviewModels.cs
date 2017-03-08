@@ -26,6 +26,6 @@ namespace RelieveLand.Models
 
         [ForeignKey("EstablishmentModels")]
         public int EstID { get; set; }
-        public virtual EstablishmentModels Establishments { get; set; }
+        public virtual EstablishmentModels EstablishmentModels { get; set; }
     }
 }
