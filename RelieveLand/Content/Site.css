@@ -1,6 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #880015;
+    color: white;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -22,3 +24,143 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*Navbar Styling*/
+.container > .navbar-collapse {
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.container > .navbar-header {
+    background-color: white;
+    border-top: 2px solid #880015;
+}
+
+.container > .navbar-collapse {
+    border-top: 2px solid #880015;
+}
+
+.navbar-inverse .navbar-toggle {
+    background-color: #880015;
+    border: 2px solid #880015;
+}
+
+    .navbar-inverse .navbar-toggle:hover {
+        background-color: white;
+        border: 2px solid #880015;
+    }
+
+.navbar-inverse .navbar-toggle {
+    background-color: #880015;
+    border: 2px solid #880015;
+}
+
+.navbar-toggle .icon-bar {
+    border: 1px solid white;
+}
+
+.navbar-toggle:hover .icon-bar {
+    border: 1px solid #880015;
+}
+
+.navbar-toggle:focus .icon-bar {
+    background-color: white;
+    border: 1px solid #880015;
+}
+
+.navbar-inverse .navbar-toggle:focus {
+    background-color: white;
+}
+
+.navbar-toggle:active .icon-bar {
+    background-color: white;
+    border: 1px solid #880015;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #880015;
+    font-size: 16px;
+}
+
+    .navbar-inverse .navbar-nav > li > a:hover {
+        color: #880015;
+        font-size: 18px;
+        text-decoration: none;
+    }
+
+.navbar-nav a {
+    font-family: 'Sansita', sans-serif;
+}
+
+.container > .navbar-header a {
+    color: #880015;
+}
+
+.navbar-inverse {
+    background-color: #880015;
+    border-bottom: 0px;
+}
+
+.navbar-brand {
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+}
+
+.container > .navbar-header {
+    padding-left: 15px;
+}
+
+.navbar-inverse .navbar-brand:hover {
+    font-family: 'Lobster', cursive;
+    font-size: 34px;
+    color: #880015;
+    text-decoration: none;
+}
+
+
+/*Footer Styling*/
+footer {
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    color: #ffc90e;
+}
+
+
+/*Text on Home Page*/
+.logo-text {
+    font-size: 50px;
+    font-family: 'Lobster',cursive;
+}
+
+.slogan {
+    font-family: 'Sansita', sans-serif;
+    font-size: 20px;
+}
+
+#logo {
+    display: inline-block;
+}
+
+h1 {
+    font-family: 'Sansita', sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+    margin-top: 0px;
+}
+
+
+/*Button Styling*/
+.btn-default {
+    background-color: #880015;
+    color: white;
+    border: 2px solid white;
+    font-family: 'Sansita', sans-serif;
+}
+
+    .btn-default:hover {
+        background-color: white;
+        color: #880015;
+        border: 2px solid white;
+        font-weight: bolder;
+    }
