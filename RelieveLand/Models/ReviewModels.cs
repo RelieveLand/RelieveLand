@@ -23,7 +23,9 @@ namespace RelieveLand.Models
         public int AppearRating { get; set; }
         [DisplayName("Additional comments")]
         public string UserComments { get; set; }
+        public string UserName { get; set; }
 
+        [DisplayName("Establishment")]
         [ForeignKey("EstablishmentModels")]
         public int EstID { get; set; }
         public virtual EstablishmentModels EstablishmentModels { get; set; }

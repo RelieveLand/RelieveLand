@@ -46,7 +46,7 @@ namespace RelieveLand.Controllers
             }
             else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return HttpNotFound();
             }
            
         }
@@ -74,12 +74,12 @@ namespace RelieveLand.Controllers
 
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return HttpNotFound();
             }
             BoroughModels boroughModels = db.BoroughModels.Find(id);
             if (boroughModels == null)
             {
-                return HttpNotFound();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             List<string> admins = new List<string>() { "sam.saunders116@yahoo.com", "humbleandrew13@gmail.com", "jcarg108@gmail.com",
                 "lavellebrown@yahoo.com", "kj5thguitar@gmail.com" };
@@ -89,7 +89,7 @@ namespace RelieveLand.Controllers
             }
             else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return HttpNotFound();
             }
         }
 
@@ -121,6 +121,7 @@ namespace RelieveLand.Controllers
             {
                 return HttpNotFound();
             }
+
             List<string> admins = new List<string>() { "sam.saunders116@yahoo.com", "humbleandrew13@gmail.com", "jcarg108@gmail.com",
                 "lavellebrown@yahoo.com", "kj5thguitar@gmail.com" };
             if (admins.Contains(User.Identity.Name.ToString()))
@@ -129,7 +130,7 @@ namespace RelieveLand.Controllers
             }
             else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return HttpNotFound();
             }
         }
 

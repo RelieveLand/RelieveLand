@@ -46,7 +46,7 @@ namespace RelieveLand.Controllers
             }
             else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return HttpNotFound();
             }
         }
 
@@ -66,7 +66,7 @@ namespace RelieveLand.Controllers
 
             return View(establishmentModels);
         }
- 
+
         // GET: EstablishmentModels/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -88,7 +88,7 @@ namespace RelieveLand.Controllers
             }
             else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return HttpNotFound();
             }
         }
 
@@ -129,7 +129,7 @@ namespace RelieveLand.Controllers
             }
             else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return HttpNotFound();
             }
         }
 

@@ -10,6 +10,7 @@ using RelieveLand.Models;
 
 namespace RelieveLand.Controllers
 {
+    [Authorize]
     public class ReviewModelsController : Controller
     {
         private RelieveLandContext db = new RelieveLandContext();
@@ -48,7 +49,7 @@ namespace RelieveLand.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReviewID,ReviewTime,OverallRating,OdorRating,AppearRating,UserComments,EstID")] ReviewModels reviewModels)
+        public ActionResult Create([Bind(Include = "ReviewID,ReviewTime,OverallRating,OdorRating,AppearRating,UserName,UserComments,EstID")] ReviewModels reviewModels)
         {
             if (ModelState.IsValid)
             {
@@ -64,6 +65,11 @@ namespace RelieveLand.Controllers
         // GET: ReviewModels/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (db.ReviewModels.Find(id).UserName != User.Identity.Name.ToString())
+            {
+                return HttpNotFound();
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -82,7 +88,7 @@ namespace RelieveLand.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ReviewID,ReviewTime,OverallRating,OdorRating,AppearRating,UserComments,EstID")] ReviewModels reviewModels)
+        public ActionResult Edit([Bind(Include = "ReviewID,ReviewTime,OverallRating,OdorRating,AppearRating,UserName,UserComments,EstID")] ReviewModels reviewModels)
         {
             if (ModelState.IsValid)
             {
@@ -97,6 +103,11 @@ namespace RelieveLand.Controllers
         // GET: ReviewModels/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (db.ReviewModels.Find(id).UserName != User.Identity.Name.ToString())
+            {
+                return HttpNotFound();
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

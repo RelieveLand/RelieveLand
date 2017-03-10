@@ -185,6 +185,10 @@
     <Compile Include="Migrations\201703091622454_AddedBoroughModels.Designer.cs">
       <DependentUpon>201703091622454_AddedBoroughModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703101616566_AddedUserNameToReviewModel.cs" />
+    <Compile Include="Migrations\201703101616566_AddedUserNameToReviewModel.Designer.cs">
+      <DependentUpon>201703101616566_AddedUserNameToReviewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BoroughModels.cs" />
@@ -297,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703091622454_AddedBoroughModels.resx">
       <DependentUpon>201703091622454_AddedBoroughModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703101616566_AddedUserNameToReviewModel.resx">
+      <DependentUpon>201703101616566_AddedUserNameToReviewModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
