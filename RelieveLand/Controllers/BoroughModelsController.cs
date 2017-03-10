@@ -38,7 +38,17 @@ namespace RelieveLand.Controllers
         // GET: BoroughModels/Create
         public ActionResult Create()
         {
-            return View();
+            List<string> admins = new List<string>() { "sam.saunders116@yahoo.com", "humbleandrew13@gmail.com", "jcarg108@gmail.com",
+                "lavellebrown@yahoo.com", "kj5thguitar@gmail.com" };
+            if (admins.Contains(User.Identity.Name.ToString()))
+            {
+                return View();
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+           
         }
 
         // POST: BoroughModels/Create
@@ -61,6 +71,7 @@ namespace RelieveLand.Controllers
         // GET: BoroughModels/Edit/5
         public ActionResult Edit(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -70,7 +81,16 @@ namespace RelieveLand.Controllers
             {
                 return HttpNotFound();
             }
-            return View(boroughModels);
+            List<string> admins = new List<string>() { "sam.saunders116@yahoo.com", "humbleandrew13@gmail.com", "jcarg108@gmail.com",
+                "lavellebrown@yahoo.com", "kj5thguitar@gmail.com" };
+            if (admins.Contains(User.Identity.Name.ToString()))
+            {
+                return View();
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
         }
 
         // POST: BoroughModels/Edit/5
@@ -101,7 +121,16 @@ namespace RelieveLand.Controllers
             {
                 return HttpNotFound();
             }
-            return View(boroughModels);
+            List<string> admins = new List<string>() { "sam.saunders116@yahoo.com", "humbleandrew13@gmail.com", "jcarg108@gmail.com",
+                "lavellebrown@yahoo.com", "kj5thguitar@gmail.com" };
+            if (admins.Contains(User.Identity.Name.ToString()))
+            {
+                return View();
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
         }
 
         // POST: BoroughModels/Delete/5
