@@ -22,5 +22,7 @@ namespace RelieveLand.Models
         public System.Data.Entity.DbSet<RelieveLand.Models.ReviewModels> ReviewModels { get; set; }
 
         public System.Data.Entity.DbSet<RelieveLand.Models.EstablishmentModels> EstablishmentModels { get; set; }
+
+        public System.Data.Entity.DbSet<RelieveLand.Models.BoroughModels> BoroughModels { get; set; }
     }
 }

@@ -169,6 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BoroughModelsController.cs" />
     <Compile Include="Controllers\EstablishmentModelsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -176,7 +177,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703080135511_InitialCreate.cs" />
+    <Compile Include="Migrations\201703080135511_InitialCreate.Designer.cs">
+      <DependentUpon>201703080135511_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703091622454_AddedBoroughModels.cs" />
+    <Compile Include="Migrations\201703091622454_AddedBoroughModels.Designer.cs">
+      <DependentUpon>201703091622454_AddedBoroughModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BoroughModels.cs" />
     <Compile Include="Models\EstablishmentModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -265,6 +276,11 @@
     <Content Include="Views\EstablishmentModels\Details.cshtml" />
     <Content Include="Views\EstablishmentModels\Edit.cshtml" />
     <Content Include="Views\EstablishmentModels\Index.cshtml" />
+    <Content Include="Views\BoroughModels\Create.cshtml" />
+    <Content Include="Views\BoroughModels\Delete.cshtml" />
+    <Content Include="Views\BoroughModels\Details.cshtml" />
+    <Content Include="Views\BoroughModels\Edit.cshtml" />
+    <Content Include="Views\BoroughModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -274,6 +290,14 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703080135511_InitialCreate.resx">
+      <DependentUpon>201703080135511_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703091622454_AddedBoroughModels.resx">
+      <DependentUpon>201703091622454_AddedBoroughModels.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
