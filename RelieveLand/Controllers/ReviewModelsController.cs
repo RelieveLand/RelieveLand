@@ -42,7 +42,22 @@ namespace RelieveLand.Controllers
         {
             ViewBag.EstID = new SelectList(db.EstablishmentModels, "EstID", "EstName");
             return View();
-        }
+
+        //        public float OverallAvg()
+        //{
+        //    int sum = 0;
+        //    foreach (ReviewModels r in db.ReviewModels)
+        //    {
+        //        sum += r.OverallRating;
+        //    }
+        //    float ovrAvg = sum / ;
+        //}
+
+
+    }
+
+
+        
 
         // POST: ReviewModels/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
