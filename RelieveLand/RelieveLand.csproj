@@ -196,6 +196,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RelieveLandContext.cs" />
+    <Compile Include="Models\ReviewEstablishmentViewModel.cs" />
     <Compile Include="Models\ReviewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

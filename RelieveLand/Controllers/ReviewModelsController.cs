@@ -41,23 +41,29 @@ namespace RelieveLand.Controllers
         public ActionResult Create()
         {
             ViewBag.EstID = new SelectList(db.EstablishmentModels, "EstID", "EstName");
+
+            //EstablishmentModels establishmentModel = db.EstablishmentModels.Find();
+
+            //IQueryable<ReviewModels> reviewModel = (from r in db.ReviewModels
+            //                                        where r.EstID == establishmentModel.EstID
+            //                                        select r);
+
+            //int count = reviewModel.Count();
+            //int sum = 0;
+
+            //foreach (ReviewModels r in reviewModel)
+            //{
+            //    sum += r.OverallRating;
+            //}
+
+            //float ovrAvg = sum / count;
+
+            //establishmentModel.OverallAvg = ovrAvg;
+
             return View();
-
-        //        public float OverallAvg()
-        //{
-        //    int sum = 0;
-        //    foreach (ReviewModels r in db.ReviewModels)
-        //    {
-        //        sum += r.OverallRating;
-        //    }
-        //    float ovrAvg = sum / ;
-        //}
+        }
 
 
-    }
-
-
-        
 
         // POST: ReviewModels/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -70,6 +76,28 @@ namespace RelieveLand.Controllers
             {
                 db.ReviewModels.Add(reviewModels);
                 db.SaveChanges();
+
+                EstablishmentModels establishmentModel = (from e in db.EstablishmentModels
+                                                                      where e.EstID == reviewModels.EstID
+                                                                      select e).First();
+
+                IQueryable<ReviewModels> reviewModel = (from r in db.ReviewModels
+                                                        where r.EstID == establishmentModel.EstID
+                                                        select r);
+
+                int count = reviewModel.Count();
+                float sum = 0f;
+
+                foreach (ReviewModels r in reviewModel)
+                {
+                    sum += r.OverallRating;
+                }
+
+                float avg = Convert.ToSingle(Math.Round((sum / count),1));
+
+                establishmentModel.OverallAvg = avg;
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
