@@ -185,9 +185,9 @@ h1 {
     display: inline-block;
 }
 
-.pic-right {
-    margin-right: 20px;
-    margin-left: 10px;
+.about-text {
+    padding-right: 5px;
+    margin-left: 5px;
 }
 
 .about-text p {
