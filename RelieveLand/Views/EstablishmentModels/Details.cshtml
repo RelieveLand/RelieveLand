@@ -1,39 +1,54 @@
 ﻿@model RelieveLand.Models.ReviewEstablishmentViewModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Html.DisplayFor(model => model.EstablishmentModel.EstName);
 }
 
 <h2>@Html.DisplayFor(model => model.EstablishmentModel.EstName)</h2>
+<h4>@Html.DisplayFor(model => model.EstablishmentModel.EstAddress) @Html.DisplayFor(model => model.EstablishmentModel.ZipCode)</h4>
+<h4>@Html.DisplayFor(model => model.EstablishmentModel.BoroughPrimary)@if (Model.EstablishmentModel.BoroughSecondary != null) {@ViewBag.SecondaryBoroughAdd @Html.DisplayFor(model => model.EstablishmentModel.BoroughSecondary)}</h4>
 
 <div>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
+    @{
+        List<object> ReviewList = new List<object> { };
+
+        foreach (var item in Model.ReviewModel)
+        {
+            ReviewList.Add(item);
+        }
+        //ReviewList.Sort(Model.ReviewModel.)
+
+            }
+
+
+
+    @*<dl class="dl-horizontal">*@
+        @*<dt>
             @Html.DisplayNameFor(model => model.EstablishmentModel.EstName)
-        </dt>
+        </dt>*@
 
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.EstablishmentModel.EstName)
-        </dd>
+        </dd>*@
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.EstablishmentModel.EstImage)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.EstablishmentModel.EstImage)
-        </dd>
+        </dd>*@
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.EstablishmentModel.EstAddress)
-        </dt>
+        </dt>*@
 
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.EstablishmentModel.EstAddress)
-        </dd>
+        </dd>*@
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.EstablishmentModel.ZipCode)
         </dt>
 
@@ -153,7 +168,7 @@
             @Html.DisplayFor(model => model.EstablishmentModel.AppearAvg)
         </dd>
 
-    </dl>
+    </dl>*@
 </div>
 @*<p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.EstablishmentModel.EstID }) |

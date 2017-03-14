@@ -33,18 +33,18 @@ namespace RelieveLand.Controllers
                 return HttpNotFound();
             }
 
+            ReviewModels reviewModel = db.ReviewModels.Find(id);
 
             var viewModel = new ReviewEstablishmentViewModel
             {
-                //We can reuse the comment form from a couple of lines above
                 EstablishmentModel = establishmentModels,
-                //We don't want to pull back all the procedures, just the one with the same priority as our comment
+                
                 ReviewModel = (from r in db.ReviewModels
                              where r.EstID == establishmentModels.EstID
                              select r)
             };
 
-
+            ViewBag.SecondaryBoroughAdd = " | ";
 
             return View(viewModel);
         }
