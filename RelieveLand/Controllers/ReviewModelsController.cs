@@ -42,24 +42,6 @@ namespace RelieveLand.Controllers
         {
             ViewBag.EstID = new SelectList(db.EstablishmentModels, "EstID", "EstName");
 
-            //EstablishmentModels establishmentModel = db.EstablishmentModels.Find();
-
-            //IQueryable<ReviewModels> reviewModel = (from r in db.ReviewModels
-            //                                        where r.EstID == establishmentModel.EstID
-            //                                        select r);
-
-            //int count = reviewModel.Count();
-            //int sum = 0;
-
-            //foreach (ReviewModels r in reviewModel)
-            //{
-            //    sum += r.OverallRating;
-            //}
-
-            //float ovrAvg = sum / count;
-
-            //establishmentModel.OverallAvg = ovrAvg;
-
             return View();
         }
 
@@ -78,24 +60,53 @@ namespace RelieveLand.Controllers
                 db.SaveChanges();
 
                 EstablishmentModels establishmentModel = (from e in db.EstablishmentModels
-                                                                      where e.EstID == reviewModels.EstID
-                                                                      select e).First();
+                                                          where e.EstID == reviewModels.EstID
+                                                          select e).First();
 
                 IQueryable<ReviewModels> reviewModel = (from r in db.ReviewModels
                                                         where r.EstID == establishmentModel.EstID
                                                         select r);
 
-                int count = reviewModel.Count();
-                float sum = 0f;
+                int reviewCount = reviewModel.Count();
+
+                //Calculating and setting Overall Average each time a User Review is submitted
+                float ovrSum = 0f;
 
                 foreach (ReviewModels r in reviewModel)
                 {
-                    sum += r.OverallRating;
+                    ovrSum += r.OverallRating;
                 }
 
-                float avg = Convert.ToSingle(Math.Round((sum / count),1));
+                float ovrAvg = Convert.ToSingle(Math.Round((ovrSum / reviewCount), 1));
 
-                establishmentModel.OverallAvg = avg;
+                establishmentModel.OverallAvg = ovrAvg;
+
+                //Calculating and setting Odor Average each time a User Review is submitted
+                float odorSum = 0f;
+
+                foreach (ReviewModels r in reviewModel)
+                {
+                    odorSum += r.OdorRating;
+                }
+
+                float odorAvg = Convert.ToSingle(Math.Round((odorSum / reviewCount), 1));
+
+                establishmentModel.OdorAvg = odorAvg;
+
+                //Calculating and setting Appearance Average each time a User Review is submitted
+                float appSum = 0f;
+
+                foreach (ReviewModels r in reviewModel)
+                {
+                    appSum += r.AppearRating;
+                }
+
+                float appAvg = Convert.ToSingle(Math.Round((appSum / reviewCount), 1));
+
+                establishmentModel.AppearAvg = appAvg;
+
+
+
                 db.SaveChanges();
 
                 return RedirectToAction("Index");

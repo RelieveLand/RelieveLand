@@ -23,6 +23,7 @@ input,
 select,
 textarea {
     max-width: 280px;
+    color: black;
 }
 
 /*Navbar Styling*/
@@ -164,3 +165,31 @@ h1 {
         border: 2px solid white;
         font-weight: bolder;
     }
+
+
+/*About*/
+.about > h2, .about a {
+    color: #ffc90e;
+}
+
+.about a:hover{
+    color: rgba(255, 201, 14, 0.6);
+    text-decoration: none;
+}
+
+.about > h2, .about > h3, .about h4 {
+    text-align: center;
+}
+
+.img-responsive {
+    display: inline-block;
+}
+
+.pic-right {
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.about-text p {
+    padding-top: 15%;
+}

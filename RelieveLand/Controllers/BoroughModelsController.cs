@@ -81,6 +81,7 @@ namespace RelieveLand.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             List<string> admins = new List<string>() { "sam.saunders116@yahoo.com", "humbleandrew13@gmail.com", "jcarg108@gmail.com",
                 "lavellebrown@yahoo.com", "kj5thguitar@gmail.com" };
             if (admins.Contains(User.Identity.Name.ToString()))
