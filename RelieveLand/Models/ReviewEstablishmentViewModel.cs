@@ -8,7 +8,6 @@ namespace RelieveLand.Models
     public class ReviewEstablishmentViewModel
     {
         public IQueryable<ReviewModels> ReviewModel { get; set; }
-        public IQueryable<EstablishmentModels> EstablishmentModel { get; set; }
-        
+        public EstablishmentModels EstablishmentModel { get; set; }
     }
 }

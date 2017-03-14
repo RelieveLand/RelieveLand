@@ -15,7 +15,7 @@ namespace RelieveLand.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "RelieveLand was created by Software Development Boot Camp Students at We Can Code IT in Cleveland, Ohio. A snippet about each of us follows below.";
+            ViewBag.Message = "RelieveLand was created by Software Development Boot Camp Students at We Can Code IT in Cleveland, Ohio to help you find a place for relief in CLE. A snippet about each of us follows below.";
 
             return View();
         }

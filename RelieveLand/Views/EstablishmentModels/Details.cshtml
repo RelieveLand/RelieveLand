@@ -1,162 +1,161 @@
-﻿@model RelieveLand.Models.EstablishmentModels
+﻿@model RelieveLand.Models.ReviewEstablishmentViewModel
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Html.DisplayFor(model => model.EstablishmentModel.EstName)</h2>
 
 <div>
-    <h4>EstablishmentModels</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.EstName)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.EstName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EstName)
+            @Html.DisplayFor(model => model.EstablishmentModel.EstName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EstImage)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.EstImage)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EstImage)
+            @Html.DisplayFor(model => model.EstablishmentModel.EstImage)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EstAddress)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.EstAddress)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EstAddress)
+            @Html.DisplayFor(model => model.EstablishmentModel.EstAddress)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ZipCode)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.ZipCode)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ZipCode)
+            @Html.DisplayFor(model => model.EstablishmentModel.ZipCode)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BoroughPrimary)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.BoroughPrimary)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.BoroughPrimary)
+            @Html.DisplayFor(model => model.EstablishmentModel.BoroughPrimary)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BoroughSecondary)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.BoroughSecondary)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.BoroughSecondary)
+            @Html.DisplayFor(model => model.EstablishmentModel.BoroughSecondary)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.HoursOfOper)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.HoursOfOper)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.HoursOfOper)
+            @Html.DisplayFor(model => model.EstablishmentModel.HoursOfOper)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SingleStall)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.SingleStall)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SingleStall)
+            @Html.DisplayFor(model => model.EstablishmentModel.SingleStall)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.HandDryer)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.HandDryer)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.HandDryer)
+            @Html.DisplayFor(model => model.EstablishmentModel.HandDryer)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ChangingStation)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.ChangingStation)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ChangingStation)
+            @Html.DisplayFor(model => model.EstablishmentModel.ChangingStation)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PurchaseNeeded)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.PurchaseNeeded)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PurchaseNeeded)
+            @Html.DisplayFor(model => model.EstablishmentModel.PurchaseNeeded)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.HandicapStall)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.HandicapStall)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.HandicapStall)
+            @Html.DisplayFor(model => model.EstablishmentModel.HandicapStall)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.HygieneProducts)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.HygieneProducts)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.HygieneProducts)
+            @Html.DisplayFor(model => model.EstablishmentModel.HygieneProducts)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FamilyRestroom)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.FamilyRestroom)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FamilyRestroom)
+            @Html.DisplayFor(model => model.EstablishmentModel.FamilyRestroom)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Extras)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.Extras)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Extras)
+            @Html.DisplayFor(model => model.EstablishmentModel.Extras)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OverallAvg)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.OverallAvg)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OverallAvg)
+            @Html.DisplayFor(model => model.EstablishmentModel.OverallAvg)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OdorAvg)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.OdorAvg)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OdorAvg)
+            @Html.DisplayFor(model => model.EstablishmentModel.OdorAvg)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AppearAvg)
+            @Html.DisplayNameFor(model => model.EstablishmentModel.AppearAvg)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AppearAvg)
+            @Html.DisplayFor(model => model.EstablishmentModel.AppearAvg)
         </dd>
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EstID }) |
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EstablishmentModel.EstID }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</p>*@
