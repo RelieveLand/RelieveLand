@@ -17,7 +17,16 @@ namespace RelieveLand.Controllers
         // GET: BoroughModels
         public ActionResult Index()
         {
-            return View(db.BoroughModels.ToList());
+            List<string> admins = new List<string>() { "sam.saunders116@yahoo.com", "humbleandrew13@gmail.com", "jcarg108@gmail.com",
+                "lavellebrown@yahoo.com", "kj5thguitar@gmail.com" };
+            if (admins.Contains(User.Identity.Name.ToString()))
+            {
+                return View(db.BoroughModels.ToList());
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
 
         // GET: BoroughModels/Details/5
@@ -32,7 +41,19 @@ namespace RelieveLand.Controllers
             {
                 return HttpNotFound();
             }
-            return View(boroughModels);
+
+            var viewModel = new BoroughEstablishmentViewModel
+            {
+                BoroughModel = boroughModels,
+
+                EstablishmentModel = (from e in db.EstablishmentModels
+                               where e.BoroughPrimary == boroughModels.BoroughName || e.BoroughSecondary == boroughModels.BoroughName
+                               orderby e.OverallAvg descending
+                               select e)
+            };
+
+
+            return View(viewModel);
         }
 
         // GET: BoroughModels/Create

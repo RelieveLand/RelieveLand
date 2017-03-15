@@ -191,6 +191,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BoroughEstablishmentViewModel.cs" />
     <Compile Include="Models\BoroughModels.cs" />
     <Compile Include="Models\EstablishmentModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />

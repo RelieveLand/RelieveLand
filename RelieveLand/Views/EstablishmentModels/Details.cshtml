@@ -11,15 +11,12 @@
 <div>
     <hr />
     @{
-        List<object> ReviewList = new List<object> { };
-
-        foreach (var item in Model.ReviewModel)
+        foreach(var item in Model.ReviewModel)
         {
-            ReviewList.Add(item);
-        }
-        //ReviewList.Sort(Model.ReviewModel.)
-
-            }
+            @Html.DisplayNameFor(model => item.OverallRating) <br />
+            @Html.DisplayFor(model => item.OverallRating) <br />
+        };
+    }
 
 
 

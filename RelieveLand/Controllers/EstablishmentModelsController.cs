@@ -41,6 +41,7 @@ namespace RelieveLand.Controllers
                 
                 ReviewModel = (from r in db.ReviewModels
                              where r.EstID == establishmentModels.EstID
+                             orderby r.ReviewID descending
                              select r)
             };
 
