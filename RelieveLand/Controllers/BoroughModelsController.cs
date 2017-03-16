@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using RelieveLand.Models;
+using PagedList;
 
 namespace RelieveLand.Controllers
 {
@@ -29,32 +30,126 @@ namespace RelieveLand.Controllers
             }
         }
 
-        // GET: BoroughModels/Details/5
-        public ActionResult Details(int? id)
+
+
+        public ViewResult Details(int? id, string sortOrder, bool? currentFilter, /*string searchEstName, string searchHoursOfOper,*/ bool? searchSingleStall, /*string searchHandDryer,*/ bool? searchChangingStation, bool? searchPurchaseNeeded, bool? searchHandicapStall, bool? searchHygieneProducts, bool? searchFamilyRestroom,/* float? searchOverallAvg,*/ bool? searchString, int? page)
         {
-            if (id == null)
+            var boroughModels = db.BoroughModels.Find(id);
+
+            if (searchString == true)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                page = 1;
             }
-            BoroughModels boroughModels = db.BoroughModels.Find(id);
-            if (boroughModels == null)
+            else
             {
-                return HttpNotFound();
+                searchString = currentFilter;
             }
 
-            var viewModel = new BoroughEstablishmentViewModel
+            ViewBag.CurrentFilter = searchString;
+
+            //var viewModel = new BoroughEstablishmentViewModel
+            //{
+            //    BoroughModel = boroughModels,
+
+            //    EstablishmentModel = (from e in db.EstablishmentModels
+            //                          where e.BoroughPrimary == boroughModels.BoroughName || e.BoroughSecondary == boroughModels.BoroughName
+            //                          orderby e.OverallAvg descending
+            //                          select e)
+            //};
+
+            var results = from s in db.EstablishmentModels
+                          where s.BoroughPrimary == boroughModels.BoroughName || s.BoroughSecondary == boroughModels.BoroughName
+                          select s;
+
+            if (/*searchEstName != null || searchHoursOfOper != null ||*/ searchSingleStall == true || /*searchHandDryer != null ||*/ searchChangingStation == true || searchPurchaseNeeded ==true || searchHandicapStall ==true || searchHygieneProducts ==true || searchFamilyRestroom ==true /*|| searchOverallAvg != null*/)
             {
-                BoroughModel = boroughModels,
-
-                EstablishmentModel = (from e in db.EstablishmentModels
-                               where e.BoroughPrimary == boroughModels.BoroughName || e.BoroughSecondary == boroughModels.BoroughName
-                               orderby e.OverallAvg descending
-                               select e)
-            };
-
-
-            return View(viewModel);
+                page = 1;
+            }
+            else
+            {
+                searchChangingStation = false;
+                searchFamilyRestroom = false;
+                searchHandicapStall = false;
+                searchHygieneProducts = false;
+                searchPurchaseNeeded = false;
+                searchSingleStall = false;
+            }
+            //if (!String.IsNullOrEmpty(searchEstName))
+            //{
+            //    results = results.Where(s => s.EstName.ToUpper().Contains(searchEstName.ToUpper()));
+            //}
+            //if (!String.IsNullOrEmpty(searchHoursOfOper))
+            //{
+            //    results = results.Where(s => s.HoursOfOper.ToUpper().Contains(searchHoursOfOper.ToUpper()));
+            //}
+            if (searchSingleStall == true)
+            {
+                results = results.Where(s => s.SingleStall == searchSingleStall);
+            }
+            //if (!String.IsNullOrEmpty(searchHandDryer))
+            //{
+            //    results = results.Where(s => s.HandDryer.ToUpper().Contains(searchHandDryer.ToUpper()));
+            //}
+            if (searchChangingStation == true)
+            {
+                results = results.Where(x => x.ChangingStation == searchChangingStation);
+            }
+            if (searchPurchaseNeeded == true)
+            {
+                results = results.Where(x => x.PurchaseNeeded == searchPurchaseNeeded);
+            }
+            if (searchHandicapStall == true)
+            {
+                results = results.Where(x => x.SingleStall == searchHandicapStall);
+            }
+            if (searchHygieneProducts == true)
+            {
+                results = results.Where(x => x.HygieneProducts == searchHygieneProducts);
+            }
+            if (searchFamilyRestroom == true)
+            {
+                results = results.Where(x => x.FamilyRestroom == searchFamilyRestroom);
+            }
+            //if (searchOverallAvg.HasValue)
+            //{
+            //    results = results.Where(x => x.SingleStall == searchSingleStall);
+            //}
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            //var establishmentModel = db.EstablishmentModels.OrderBy(s => s.EstName).ToPagedList(pageNumber,pageSize);
+            return View(results.OrderByDescending(s => s.OverallAvg).ToPagedList(pageNumber, pageSize));
+            //return View(establishmentModel);
         }
+
+
+
+
+        // GET: BoroughModels/Details/5
+        //public ActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    BoroughModels boroughModels = db.BoroughModels.Find(id);
+        //    if (boroughModels == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+
+        //    var viewModel = new BoroughEstablishmentViewModel
+        //    {
+        //        BoroughModel = boroughModels,
+
+        //        EstablishmentModel = (from e in db.EstablishmentModels
+        //                       where e.BoroughPrimary == boroughModels.BoroughName || e.BoroughSecondary == boroughModels.BoroughName
+        //                       orderby e.OverallAvg descending
+        //                       select e)
+        //    };
+
+
+        //    return View(viewModel);
+        //}
 
         // GET: BoroughModels/Create
         public ActionResult Create()

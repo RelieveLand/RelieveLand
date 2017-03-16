@@ -1,26 +1,67 @@
-﻿@model RelieveLand.Models.BoroughModels
+﻿@model PagedList.IPagedList<RelieveLand.Models.EstablishmentModels>
+@using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "RelieveLand - " + @Html.DisplayFor(model => model.FirstOrDefault().BoroughPrimary);
 }
 
-<h2>Details</h2>
+<div id="borough-header" class="text-center">
+    <h3>@Html.DisplayFor(model => model.FirstOrDefault().BoroughPrimary)</h3>
 
-<div>
-    <h4>BoroughModels</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.BoroughName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BoroughName)
-        </dd>
-
-    </dl>
+    <span onclick="openNav()"><button class="btn btn-primary filter">Filter By Features</button></span>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BoroughID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<hr />
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn btn-default" onclick="closeNav()">&times;</a>
+
+    @using (Html.BeginForm("Details", "BoroughModels", FormMethod.Get))
+            {
+        <p>
+            <br /><br />
+            @*Name: @Html.TextBox("searchEstName", ViewBag.CurrentFilter as string)<br />*@
+            @*Hours of Operations: @Html.TextBox("searchHoursOfOper", ViewBag.CurrentFilter as string)<br />*@
+            @Html.CheckBox("searchSingleStall", ViewBag.CurrentFilter as bool?) SingleStall<br />
+            @*Hand Dryer:  @Html.TextBox("searchHandDryer", ViewBag.CurrentFilter as string)<br />*@
+            @Html.CheckBox("searchChangingStation", ViewBag.CurrentFilter as bool?) Changing Station<br />
+            @Html.CheckBox("searchPurchaseNeeded", ViewBag.CurrentFilter as bool?) Purchase Needed<br />
+            @Html.CheckBox("searchHandicapStall", ViewBag.CurrentFilter as bool?) Handicap Stall<br />
+            @Html.CheckBox("searchHygieneProducts", ViewBag.CurrentFilter as bool?) Feminine Hygiene<br />
+            @Html.CheckBox("searchFamilyRestroom", ViewBag.CurrentFilter as bool?) Family Restroom<br />
+            @*Overall:@Html.TextBox("searchOverallAvg", ViewBag.CurrentFilter as int?)<br /><br />*@
+            <br />
+            <input type="submit" value="Find Restrooms" />
+        </p>
+    }
+</div>
+
+<div class="container">
+
+    @foreach (var item in Model)
+    {
+        <div class="row outside-border">
+            <div class="inside-border">
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 cell">
+                    <img class="img-responsive small" src="~/Images/toilet-silhouette.jpg" />
+                </div>
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 cell ovravg">
+                    <p>@Html.DisplayNameFor(modelItem => item.OverallAvg)</p>
+                    <h3>@Html.DisplayFor(modelItem => item.OverallAvg)</h3>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cell">
+                    <h4>@Html.DisplayFor(modelItem => item.EstName)</h4>
+                    <p>@Html.DisplayFor(modelItem => item.EstAddress) @Html.DisplayFor(modelItem => item.ZipCode)</p>
+                    <p>@Html.DisplayFor(modelItem => item.HoursOfOper)</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Extras)
+            </td>*@
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Details", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

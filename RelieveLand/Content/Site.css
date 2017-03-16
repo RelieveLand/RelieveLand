@@ -122,13 +122,78 @@ textarea {
     text-decoration: none;
 }
 
-
 /*Footer Styling*/
 footer {
     font-family: 'Lobster', cursive;
     font-size: 20px;
     color: #ffc90e;
 }
+
+
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-y: hidden;
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+    /* The navigation menu links */
+    .sidenav a {
+        padding: 8px 8px 8px 8px;
+        text-decoration: none;
+        font-size: 25px;
+        color: black;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidenav p {
+        font-size: 30px;
+        font-family: 'Sansita', sans-serif;
+        padding-left: 30px;
+    }
+
+    /* When you mouse over the navigation links, change their color */
+    .sidenav a:hover, .offcanvas a:focus {
+        color: #f1f1f1;
+    }
+
+    /* Position and style the close button (top right corner) */
+    .sidenav .closebtn {
+        position: absolute;
+        top: 70px;
+        right: 25px;
+        font-size: 30px;
+        margin-left: 0px;
+    }
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+/*End of Side Nav styling*/
 
 
 /*Text on Home Page*/
@@ -154,6 +219,57 @@ h1 {
 }
 
 
+/*Borough Details Styling*/
+#borough-header {
+    font-family: 'Sansita', sans-serif;
+}
+
+.pagination > .active > a {
+    font-family: 'Sansita', sans-serif;
+    z-index: auto;
+    background-color: black;
+    border-color: black;
+}
+
+.pagination > li > a {
+    font-family: 'Sansita', sans-serif;
+    color: black;
+}
+
+.outside-border {
+    border: 5px solid white;
+    border-radius: 5px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.inside-border {
+    border: 5px solid #880015;
+    background-color: white;
+    color: #880015;
+    border-radius: 5px;
+    font-family: 'Sansita', sans-serif;
+}
+
+.cell {
+    background-color: white;
+    color: #880015;
+    height: 115px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.ovravg {
+    padding-top: 15px;
+}
+
+.small {
+    display: inline-block;
+    max-height: 105px;
+}
+
+
+
 /*Button Styling*/
 .btn-default {
     background-color: #880015;
@@ -169,16 +285,22 @@ h1 {
         font-weight: bolder;
     }
 
+.filter {
+    background-color: white;
+    color: #880015;
+    border-color: #818181;
+}
+
 
 /*About*/
 .about > h2, .about a {
     color: #ffc90e;
 }
 
-.about a:hover{
-    color: rgba(255, 201, 14, 0.6);
-    text-decoration: none;
-}
+    .about a:hover {
+        color: rgba(255, 201, 14, 0.6);
+        text-decoration: none;
+    }
 
 .about > h2, .about > h3, .about h4 {
     text-align: center;
@@ -193,6 +315,6 @@ h1 {
     margin-left: 5px;
 }
 
-.about-text p {
-    padding-top: 15%;
-}
+    .about-text p {
+        padding-top: 15%;
+    }

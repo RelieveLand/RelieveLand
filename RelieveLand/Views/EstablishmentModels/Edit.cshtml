@@ -52,18 +52,18 @@
         <div class="form-group">
             @Html.LabelFor(model => model.BoroughPrimary, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BoroughPrimary, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.BoroughPrimary, new SelectList(new List<string> { "Playhouse Square", "Victory Alley/E. 9th", "E. 4th St", "W. 6th St / Warehouse District", "Flats", "Tremont", "Ohio City" }, "Select Borough"))
                 @Html.ValidationMessageFor(model => model.BoroughPrimary, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.BoroughSecondary, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BoroughSecondary, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.BoroughSecondary, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.HoursOfOper, htmlAttributes: new { @class = "control-label col-md-2" })
