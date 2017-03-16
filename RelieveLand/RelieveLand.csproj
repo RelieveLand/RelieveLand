@@ -207,6 +207,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\KeithandSam.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -221,10 +222,12 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\ASHHeadshot.sm.jpg" />
+    <Content Include="Images\IMG_20170315_143345-2.jpg" />
     <Content Include="Images\JCHeadshot.sm.jpg" />
     <Content Include="Images\KJHeadshot.sm.jpg" />
     <Content Include="Images\LBHeadshot.sm.jpg" />
     <Content Include="Images\RL-Ladies-Gents.jpg" />
+    <Content Include="Images\rsz_img_20170315_143345-2.jpg" />
     <Content Include="Images\SSHeadshot.sm.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

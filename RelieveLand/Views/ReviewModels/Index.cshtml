@@ -4,66 +4,93 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="jumbotron">
+
+    <h1 class="Reviews">Reviews</h1>
+
+    <p class="lead">"Where to go, when you need to go."</p>
+</div>
+
+@foreach (var item in Model)
+{
+    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+        <div class="thumbnail">
+            <div class="row">
+                <div class="caption">
+                    <h4><span class="label label-primary">Establishment Name:  </span>@Html.DisplayFor(modelItem => item.EstablishmentModels.EstName)</h4>
+                    <h5><span class="label label-primary">User:  </span>@Html.DisplayFor(modelItem => item.UserName)</h5>
+                    <p>@Html.DisplayFor(modelItem => item.ReviewTime)</p>
+                    <p><span class="label label-primary">Overall:  </span>@Html.DisplayFor(modelItem => item.OverallRating)</p>
+                    <p><span class="label label-primary">Appearance:  </span>@Html.DisplayFor(modelItem => item.AppearRating)</p>
+                    <p><span class="label label-primary">Odor:  </span>@Html.DisplayFor(modelItem => item.OdorRating)</p>
+                    <p><span class="label label-primary">Comments:  </span>@Html.DisplayFor(modelItem => item.UserComments)</p>
+                    @Html.ActionLink("Main", "Details", new { id = item.EstID }, new { @class = "btn btn-default", role = "button" })
+                </div>
+            </div>
+        </div>
+    </div>
+  
+}
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EstablishmentModels.EstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReviewTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OverallRating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OdorRating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AppearRating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserComments)
-        </th>
-        <th></th>
-    </tr>
+@*<table class="table">
+        <tr id="ReviewCatagoryHeader">
+            <th>
+                @Html.DisplayNameFor(model => model.EstablishmentModels.EstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReviewTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OverallRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OdorRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppearRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserComments)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EstablishmentModels.EstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReviewTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OverallRating)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OdorRating)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AppearRating)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserComments)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ReviewID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ReviewID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ReviewID })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr id="ReviewInput">
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstablishmentModels.EstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReviewTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OverallRating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OdorRating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppearRating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserComments)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ReviewID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ReviewID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ReviewID })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>*@

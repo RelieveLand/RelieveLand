@@ -13,7 +13,7 @@ namespace RelieveLand.Models
         [Key]
         public int ReviewID { get; set; }
 
-        [DisplayName("Review Time Submitted")]
+        [DisplayName("")]
         public string ReviewTime { get; set; }
         [DisplayName("Overall Restroom Rating")]
         public int OverallRating { get; set; }
