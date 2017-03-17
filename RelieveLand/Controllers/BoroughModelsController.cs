@@ -36,7 +36,7 @@ namespace RelieveLand.Controllers
         {
             var boroughModels = db.BoroughModels.Find(id);
 
-            if (searchString == true)
+            if (searchString != null)
             {
                 page = 1;
             }

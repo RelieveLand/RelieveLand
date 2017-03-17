@@ -224,17 +224,19 @@ h1 {
     font-family: 'Sansita', sans-serif;
 }
 
-.pagination > .active > a {
+.pagination > .active > a, .pagination > .active > a:hover {
     font-family: 'Sansita', sans-serif;
     z-index: auto;
     background-color: black;
     border-color: black;
 }
 
-.pagination > li > a {
+.pagination > li > a, .pagination > li > a:hover {
     font-family: 'Sansita', sans-serif;
     color: black;
 }
+
+
 
 .outside-border {
     border: 5px solid white;
@@ -264,8 +266,26 @@ h1 {
 }
 
 .small {
+    padding-top: 8px;
     display: inline-block;
     max-height: 105px;
+}
+
+.filter {
+    background-color: white;
+    color: black;
+    border-color: #818181;
+}
+
+.filter:hover, .filter:active, .filter:focus,
+.filter:active:focus, .btn-primary:active:hover, 
+.btn-primary.active:hover, .open > .dropdown-toggle.btn-primary:hover, 
+.btn-primary:active:focus, .btn-primary.active:focus, 
+.open > .dropdown-toggle.btn-primary:focus, .btn-primary:active.focus, 
+.btn-primary.active.focus, .open > .dropdown-toggle.btn-primary.focus{
+    color: white;
+    background-color: black;
+    border-color: #1e1e1e;
 }
 
 
@@ -284,12 +304,6 @@ h1 {
         border: 2px solid white;
         font-weight: bolder;
     }
-
-.filter {
-    background-color: white;
-    color: #880015;
-    border-color: #818181;
-}
 
 
 /*About*/

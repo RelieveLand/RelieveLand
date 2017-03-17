@@ -42,7 +42,15 @@
         <div class="row outside-border">
             <div class="inside-border">
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 cell">
-                    <img class="img-responsive small" src="~/Images/toilet-silhouette.jpg" />
+                    @if (item.EstImage == null)
+                    {
+                        <img class="img-responsive small" src="~/Images/toilet-silhouette.jpg" />
+                    }
+                    else
+                    {
+                        <img class="img-responsive small" src=@Html.DisplayFor(modelItem => item.EstImage) alt="@Html.DisplayFor(modelItem => item.EstName)">
+                    }
+                    
                 </div>
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 cell ovravg">
                     <p>@Html.DisplayNameFor(modelItem => item.OverallAvg)</p>
