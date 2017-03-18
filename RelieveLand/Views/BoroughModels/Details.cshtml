@@ -21,13 +21,13 @@
             <br /><br />
             @*Name: @Html.TextBox("searchEstName", ViewBag.CurrentFilter as string)<br />*@
             @*Hours of Operations: @Html.TextBox("searchHoursOfOper", ViewBag.CurrentFilter as string)<br />*@
-            @Html.CheckBox("searchSingleStall", ViewBag.CurrentFilter as bool?) SingleStall<br />
+            @Html.CheckBox("searchSingleStall", ViewBag.SearchSingleStall as bool?) Single Stall Only<br />
             @*Hand Dryer:  @Html.TextBox("searchHandDryer", ViewBag.CurrentFilter as string)<br />*@
-            @Html.CheckBox("searchChangingStation", ViewBag.CurrentFilter as bool?) Changing Station<br />
-            @Html.CheckBox("searchPurchaseNeeded", ViewBag.CurrentFilter as bool?) Purchase Needed<br />
-            @Html.CheckBox("searchHandicapStall", ViewBag.CurrentFilter as bool?) Handicap Stall<br />
-            @Html.CheckBox("searchHygieneProducts", ViewBag.CurrentFilter as bool?) Feminine Hygiene<br />
-            @Html.CheckBox("searchFamilyRestroom", ViewBag.CurrentFilter as bool?) Family Restroom<br />
+            @Html.CheckBox("searchChangingStation", ViewBag.SearchChangingStation as bool?) Changing Station<br />
+            @Html.CheckBox("searchPurchaseNeeded", ViewBag.SearchPurchaseNeeded as bool?) Purchase Needed?<br />
+            @Html.CheckBox("searchHandicapStall", ViewBag.SearchHandicapStall as bool?) Handicap Stall<br />
+            @Html.CheckBox("searchHygieneProducts", ViewBag.SearchHygieneProducts as bool?) Feminine Hygiene Products<br />
+            @Html.CheckBox("searchFamilyRestroom", ViewBag.SearchFamilyRestroom as bool?) Family Restroom<br />
             @*Overall:@Html.TextBox("searchOverallAvg", ViewBag.CurrentFilter as int?)<br /><br />*@
             <br />
             <input type="submit" value="Find Restrooms" />

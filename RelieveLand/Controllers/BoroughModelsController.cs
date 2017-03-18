@@ -32,17 +32,17 @@ namespace RelieveLand.Controllers
 
 
 
-        public ViewResult Details(int? id, string sortOrder, bool? currentFilter, /*string searchEstName, string searchHoursOfOper,*/ bool? searchSingleStall, /*string searchHandDryer,*/ bool? searchChangingStation, bool? searchPurchaseNeeded, bool? searchHandicapStall, bool? searchHygieneProducts, bool? searchFamilyRestroom,/* float? searchOverallAvg,*/ bool? searchString, int? page)
+        public ViewResult Details(int? id, string sortOrder, /*string searchEstName, string searchHoursOfOper,*/ bool? searchSingleStall, /*string searchHandDryer,*/ bool? searchChangingStation, bool? searchPurchaseNeeded, bool? searchHandicapStall, bool? searchHygieneProducts, bool? searchFamilyRestroom,/* float? searchOverallAvg,*/ string searchString, int? page)
         {
             var boroughModels = db.BoroughModels.Find(id);
 
-            if (searchString != null)
+            if (searchString == null)
             {
                 page = 1;
             }
             else
             {
-                searchString = currentFilter;
+                searchString = ViewBag.SearchSingleStall+ViewBag.SearchChangingStation+ViewBag.SearchPurchaseNeeded+ViewBag.SearchHandicapStall+ViewBag.SearchHygieneProducts+ViewBag.SearchFamilyRestroom;
             }
 
             ViewBag.CurrentFilter = searchString;
