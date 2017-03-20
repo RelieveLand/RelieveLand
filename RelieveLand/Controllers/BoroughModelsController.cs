@@ -32,21 +32,20 @@ namespace RelieveLand.Controllers
 
 
 
-        public ViewResult Details(int? id, string sortOrder, /*string searchEstName, string searchHoursOfOper,*/ bool? searchSingleStall, /*string searchHandDryer,*/ bool? searchChangingStation, bool? searchPurchaseNeeded, bool? searchHandicapStall, bool? searchHygieneProducts, bool? searchFamilyRestroom,/* float? searchOverallAvg,*/ string searchString, int? page)
+        public ViewResult Details(int? id, string sortOrder, string currentFilter,/*string searchEstName, string searchHoursOfOper,*/ bool? searchSingleStall, /*string searchHandDryer,*/ bool? searchChangingStation, bool? searchPurchaseNeeded, bool? searchHandicapStall, bool? searchHygieneProducts, bool? searchFamilyRestroom,/* float? searchOverallAvg,*/ string searchString, int? page)
         {
             var boroughModels = db.BoroughModels.Find(id);
 
-            if (searchString == null)
+            if (searchString != null)
             {
-                page = 1;
+                page = (page ?? 1);
             }
             else
             {
-                searchString = ViewBag.SearchSingleStall+ViewBag.SearchChangingStation+ViewBag.SearchPurchaseNeeded+ViewBag.SearchHandicapStall+ViewBag.SearchHygieneProducts+ViewBag.SearchFamilyRestroom;
+                searchString = currentFilter;
             }
 
-            ViewBag.CurrentFilter = searchString;
-
+            
             //var viewModel = new BoroughEstablishmentViewModel
             //{
             //    BoroughModel = boroughModels,
@@ -63,7 +62,7 @@ namespace RelieveLand.Controllers
 
             if (/*searchEstName != null || searchHoursOfOper != null ||*/ searchSingleStall == true || /*searchHandDryer != null ||*/ searchChangingStation == true || searchPurchaseNeeded ==true || searchHandicapStall ==true || searchHygieneProducts ==true || searchFamilyRestroom ==true /*|| searchOverallAvg != null*/)
             {
-                page = 1;
+                page = (page ?? 1);
             }
             else
             {
@@ -84,6 +83,7 @@ namespace RelieveLand.Controllers
             //}
             if (searchSingleStall == true)
             {
+                searchString = "&searchSingleStall=true&";
                 results = results.Where(s => s.SingleStall == searchSingleStall);
             }
             //if (!String.IsNullOrEmpty(searchHandDryer))
@@ -92,28 +92,40 @@ namespace RelieveLand.Controllers
             //}
             if (searchChangingStation == true)
             {
-                results = results.Where(x => x.ChangingStation == searchChangingStation);
+                searchString += "&searchChangingStation=true&";
+                results = results.Where(s => s.ChangingStation == searchChangingStation);
             }
             if (searchPurchaseNeeded == true)
             {
-                results = results.Where(x => x.PurchaseNeeded == searchPurchaseNeeded);
+                searchString += "&searchPurchaseNeeded=true&";
+                results = results.Where(s => s.PurchaseNeeded == searchPurchaseNeeded);
             }
             if (searchHandicapStall == true)
             {
-                results = results.Where(x => x.SingleStall == searchHandicapStall);
+                searchString += "&searchHandicapStall=true&";
+                results = results.Where(s => s.SingleStall == searchHandicapStall);
             }
             if (searchHygieneProducts == true)
             {
-                results = results.Where(x => x.HygieneProducts == searchHygieneProducts);
+                searchString += "&searchHygieneProducts=true&";
+                results = results.Where(s => s.HygieneProducts == searchHygieneProducts);
             }
             if (searchFamilyRestroom == true)
             {
-                results = results.Where(x => x.FamilyRestroom == searchFamilyRestroom);
+                searchString += "&searchFamilyRestroom=true&";
+                results = results.Where(s => s.FamilyRestroom == searchFamilyRestroom);
             }
             //if (searchOverallAvg.HasValue)
             //{
             //    results = results.Where(x => x.SingleStall == searchSingleStall);
             //}
+            //if (searchString != null)
+            //{
+            //    searchString = searchString.Replace("\\&", "&");
+            //    searchString = searchString.Replace("\\=", "=");
+            //}
+            ViewBag.CurrentFilter = searchString;
+
             int pageSize = 5;
             int pageNumber = (page ?? 1);
             //var establishmentModel = db.EstablishmentModels.OrderBy(s => s.EstName).ToPagedList(pageNumber,pageSize);
