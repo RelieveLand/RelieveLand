@@ -233,7 +233,7 @@
     <Content Include="Images\JCHeadshot.sm.jpg" />
     <Content Include="Images\KJHeadshot.sm.jpg" />
     <Content Include="Images\LBHeadshot.sm.jpg" />
-    <Content Include="Images\RL-Ladies-Gents.jpg" />
+    <Content Include="Images\RelievelandLogo.png" />
     <Content Include="Images\SSHeadshot.sm.jpg" />
     <Content Include="Images\toilet-silhouette.jpg" />
     <Content Include="Scripts\bootstrap.js" />
