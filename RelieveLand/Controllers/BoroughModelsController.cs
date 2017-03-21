@@ -20,7 +20,7 @@ namespace RelieveLand.Controllers
         {
             List<string> admins = new List<string>() { "sam.saunders116@yahoo.com", "humbleandrew13@gmail.com", "jcarg108@gmail.com",
                 "lavellebrown@yahoo.com", "kj5thguitar@gmail.com" };
-            if (admins.Contains(User.Identity.Name.ToString()))
+            if (admins.Contains(User.Identity.Name.ToString().ToLower()))
             {
                 return View(db.BoroughModels.ToList());
             }
@@ -45,22 +45,11 @@ namespace RelieveLand.Controllers
                 searchString = currentFilter;
             }
 
-            
-            //var viewModel = new BoroughEstablishmentViewModel
-            //{
-            //    BoroughModel = boroughModels,
-
-            //    EstablishmentModel = (from e in db.EstablishmentModels
-            //                          where e.BoroughPrimary == boroughModels.BoroughName || e.BoroughSecondary == boroughModels.BoroughName
-            //                          orderby e.OverallAvg descending
-            //                          select e)
-            //};
-
             var results = from s in db.EstablishmentModels
                           where s.BoroughPrimary == boroughModels.BoroughName || s.BoroughSecondary == boroughModels.BoroughName
                           select s;
 
-            if (/*searchEstName != null || searchHoursOfOper != null ||*/ searchSingleStall == true || /*searchHandDryer != null ||*/ searchChangingStation == true || searchPurchaseNeeded ==true || searchHandicapStall ==true || searchHygieneProducts ==true || searchFamilyRestroom ==true /*|| searchOverallAvg != null*/)
+            if (/*searchEstName != null || searchHoursOfOper != null ||*/ searchSingleStall == true || /*searchHandDryer != null ||*/ searchChangingStation == true || searchPurchaseNeeded == true || searchHandicapStall == true || searchHygieneProducts == true || searchFamilyRestroom == true /*|| searchOverallAvg != null*/)
             {
                 page = (page ?? 1);
             }
@@ -120,48 +109,14 @@ namespace RelieveLand.Controllers
             //    results = results.Where(x => x.SingleStall == searchSingleStall);
             //}
             //if (searchString != null)
-            //{
-            //    searchString = searchString.Replace("\\&", "&");
-            //    searchString = searchString.Replace("\\=", "=");
-            //}
+            
             ViewBag.CurrentFilter = searchString;
 
             int pageSize = 5;
             int pageNumber = (page ?? 1);
-            //var establishmentModel = db.EstablishmentModels.OrderBy(s => s.EstName).ToPagedList(pageNumber,pageSize);
+            
             return View(results.OrderByDescending(s => s.OverallAvg).ToPagedList(pageNumber, pageSize));
-            //return View(establishmentModel);
         }
-
-
-
-
-        // GET: BoroughModels/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    BoroughModels boroughModels = db.BoroughModels.Find(id);
-        //    if (boroughModels == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-
-        //    var viewModel = new BoroughEstablishmentViewModel
-        //    {
-        //        BoroughModel = boroughModels,
-
-        //        EstablishmentModel = (from e in db.EstablishmentModels
-        //                       where e.BoroughPrimary == boroughModels.BoroughName || e.BoroughSecondary == boroughModels.BoroughName
-        //                       orderby e.OverallAvg descending
-        //                       select e)
-        //    };
-
-
-        //    return View(viewModel);
-        //}
 
         // GET: BoroughModels/Create
         public ActionResult Create()
@@ -176,7 +131,7 @@ namespace RelieveLand.Controllers
             {
                 return HttpNotFound();
             }
-           
+
         }
 
         // POST: BoroughModels/Create

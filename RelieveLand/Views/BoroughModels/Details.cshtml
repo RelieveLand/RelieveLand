@@ -31,32 +31,6 @@
                 @*Overall:@Html.TextBox("searchOverallAvg", ViewBag.CurrentFilter as int?)<br /><br />*@
                 <br />
                 <input type="submit" value="Find Restrooms" />
-
-                @*@ViewBag.CurrentFilter
-                    @if (ViewBag.SearchSingleStall != null)
-                    {
-                        ViewBag.CurrentFilter += ViewBag.SearchSingleStall;
-                    }
-                    @if (ViewBag.SearchChangingStation != null)
-                    {
-                        ViewBag.CurrentFilter += ViewBag.SearchChangingStation;
-                    }
-                    @if (ViewBag.SearchPurchaseNeeded != null)
-                    {
-                        ViewBag.CurrentFilter += ViewBag.SearchPurchaseNeeded;
-                    }
-                    @if (ViewBag.SearchHandicapStall != null)
-                    {
-                        ViewBag.CurrentFilter += ViewBag.SearchHandicapStall;
-                    }
-                    @if (ViewBag.SearchHygieneProducts != null)
-                    {
-                        ViewBag.CurrentFilter += ViewBag.SearchHygieneProducts;
-                    }
-                    @if (ViewBag.SearchFamilyRestroom != null)
-                    {
-                        ViewBag.CurrentFilter += ViewBag.SearchFamilyRestroom;
-                    }*@
             </p>
         }
     </div>
@@ -95,12 +69,6 @@
             </a>
         }
     </div>
-
-    @*<td>
-            @Html.DisplayFor(modelItem => item.Extras)
-        </td>*@
-
-
 
     Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 

@@ -17,7 +17,16 @@ namespace RelieveLand.Controllers
         // GET: EstablishmentModels
         public ActionResult Index()
         {
-            return View(db.EstablishmentModels.ToList());
+            List<string> admins = new List<string>() { "sam.saunders116@yahoo.com", "humbleandrew13@gmail.com", "jcarg108@gmail.com",
+                "lavellebrown@yahoo.com", "kj5thguitar@gmail.com" };
+            if (admins.Contains(User.Identity.Name.ToString().ToLower()))
+            {
+                return View(db.EstablishmentModels.ToList());
+            }
+            else
+            {
+                return HttpNotFound();
+            }
         }
 
         // GET: EstablishmentModels/Details/5
@@ -38,11 +47,11 @@ namespace RelieveLand.Controllers
             var viewModel = new ReviewEstablishmentViewModel
             {
                 EstablishmentModel = establishmentModels,
-                
+
                 ReviewModel = (from r in db.ReviewModels
-                             where r.EstID == establishmentModels.EstID
-                             orderby r.ReviewID descending
-                             select r)
+                               where r.EstID == establishmentModels.EstID
+                               orderby r.ReviewID descending
+                               select r)
             };
 
             ViewBag.SecondaryBoroughAdd = " | ";
@@ -55,7 +64,7 @@ namespace RelieveLand.Controllers
         {
             List<string> admins = new List<string>() { "sam.saunders116@yahoo.com", "humbleandrew13@gmail.com", "jcarg108@gmail.com",
                 "lavellebrown@yahoo.com", "kj5thguitar@gmail.com" };
-            if (admins.Contains(User.Identity.Name.ToString()))
+            if (admins.Contains(User.Identity.Name.ToString().ToLower()))
             {
                 return View();
             }
@@ -97,7 +106,7 @@ namespace RelieveLand.Controllers
 
             List<string> admins = new List<string>() { "sam.saunders116@yahoo.com", "humbleandrew13@gmail.com", "jcarg108@gmail.com",
                 "lavellebrown@yahoo.com", "kj5thguitar@gmail.com" };
-            if (admins.Contains(User.Identity.Name.ToString()))
+            if (admins.Contains(User.Identity.Name.ToString().ToLower()))
             {
                 return View(establishmentModels);
             }
@@ -138,7 +147,7 @@ namespace RelieveLand.Controllers
 
             List<string> admins = new List<string>() { "sam.saunders116@yahoo.com", "humbleandrew13@gmail.com", "jcarg108@gmail.com",
                 "lavellebrown@yahoo.com", "kj5thguitar@gmail.com" };
-            if (admins.Contains(User.Identity.Name.ToString()))
+            if (admins.Contains(User.Identity.Name.ToString().ToLower()))
             {
                 return View(establishmentModels);
             }
