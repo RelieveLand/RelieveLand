@@ -1,22 +1,35 @@
 ﻿@model RelieveLand.Models.ReviewEstablishmentViewModel
 
 @{
-    ViewBag.Title = Html.DisplayFor(model => model.EstablishmentModel.EstName);
+//ViewBag.Title = Html.DisplayFor(model => model.EstablishmentModel.EstName);
 }
 
-<h2>@Html.DisplayFor(model => model.EstablishmentModel.EstName)</h2>
-<h4>@Html.DisplayFor(model => model.EstablishmentModel.EstAddress) @Html.DisplayFor(model => model.EstablishmentModel.ZipCode)</h4>
-<h4>@Html.DisplayFor(model => model.EstablishmentModel.BoroughPrimary)@if (Model.EstablishmentModel.BoroughSecondary != null) {@ViewBag.SecondaryBoroughAdd @Html.DisplayFor(model => model.EstablishmentModel.BoroughSecondary)}</h4>
-
-<div>
-    <hr />
-    @{
-        foreach(var item in Model.ReviewModel)
-        {
-            @Html.DisplayNameFor(model => item.OverallRating) <br />
-            @Html.DisplayFor(model => item.OverallRating) <br />
-        };
+<style>
+    .left-div{
+        background:url('@Html.DisplayFor(model => model.EstablishmentModel.EstImage)');
     }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="thumbnail col-sm-6 col-md-6 col-lg-6 left-div">
+            <h1 class="Reviews">@Html.DisplayFor(model => model.EstablishmentModel.EstName)</h1>
+            <p class="lead">@Html.DisplayFor(model => model.EstablishmentModel.EstAddress)</p>
+            <p class="lead">@Html.DisplayFor(model => model.EstablishmentModel.BoroughPrimary)</p>
+        </div>
+
+
+        <div class="thumbnail col-sm-6 col-md-6 col-lg-6 right-div">
+            <h2>@Html.DisplayFor(model => model.EstablishmentModel.EstName)</h2>
+            <h4>@Html.DisplayFor(model => model.EstablishmentModel.EstAddress) @Html.DisplayFor(model => model.EstablishmentModel.ZipCode)</h4>
+            <h4>
+                @Html.DisplayFor(model => model.EstablishmentModel.BoroughPrimary)@if (Model.EstablishmentModel.BoroughSecondary != null)
+            {@ViewBag.SecondaryBoroughAdd @Html.DisplayFor(model => model.EstablishmentModel.BoroughSecondary)}
+            </h4>
+        </div>
+    </div>
+</div>
+
 
 
 

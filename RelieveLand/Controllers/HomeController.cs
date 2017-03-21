@@ -21,9 +21,10 @@ namespace RelieveLand.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Any issues, bugs, errors, or incorrect details we have about a restroom? Please let us know.";
 
             return View();
         }

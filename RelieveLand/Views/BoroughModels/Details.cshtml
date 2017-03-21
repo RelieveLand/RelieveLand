@@ -4,102 +4,106 @@
 @{
     ViewBag.Title = "RelieveLand - " + @Html.DisplayFor(model => model.FirstOrDefault().BoroughPrimary);
 }
+<div class="detailsbackground">
+    <div id="borough-header" class="text-center">
+        <h3>@Html.DisplayFor(model => model.FirstOrDefault().BoroughPrimary)</h3>
 
-<div id="borough-header" class="text-center">
-    <h3>@Html.DisplayFor(model => model.FirstOrDefault().BoroughPrimary)</h3>
+        <span onclick="openNav()"><button class="btn btn-primary filter">Filter By Features</button></span>
+    </div>
+    <hr />
 
-    <span onclick="openNav()"><button class="btn btn-primary filter">Filter By Features</button></span>
-</div>
-<hr />
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn btn-default" onclick="closeNav()"><h1>X</h1></a>
 
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn btn-default" onclick="closeNav()">&times;</a>
+        @using (Html.BeginForm("Details", "BoroughModels", FormMethod.Get))
+            {
+            <p>
+                <br /><br />
+                @*Name: @Html.TextBox("searchEstName", ViewBag.CurrentFilter as string)<br />*@
+                @*Hours of Operations: @Html.TextBox("searchHoursOfOper", ViewBag.CurrentFilter as string)<br />*@
+                @Html.CheckBox("searchSingleStall", ViewBag.CurrentFilter as bool?) Single Stall Only<br />
+                @*Hand Dryer:  @Html.TextBox("searchHandDryer", ViewBag.CurrentFilter as string)<br />*@
+                @Html.CheckBox("searchChangingStation", ViewBag.CurrentFilter as bool?) Changing Station<br />
+                @Html.CheckBox("searchPurchaseNeeded", ViewBag.CurrentFilter as bool?) Purchase Needed?<br />
+                @Html.CheckBox("searchHandicapStall", ViewBag.CurrentFilter as bool?) Handicap Stall<br />
+                @Html.CheckBox("searchHygieneProducts", ViewBag.CurrentFilter as bool?) Feminine Hygiene Products<br />
+                @Html.CheckBox("searchFamilyRestroom", ViewBag.CurrentFilter as bool?) Family Restroom<br />
+                @*Overall:@Html.TextBox("searchOverallAvg", ViewBag.CurrentFilter as int?)<br /><br />*@
+                <br />
+                <input type="submit" value="Find Restrooms" />
 
-    @using (Html.BeginForm("Details", "BoroughModels", FormMethod.Get))
-            {
-        <p>
-            <br /><br />
-            @*Name: @Html.TextBox("searchEstName", ViewBag.CurrentFilter as string)<br />*@
-            @*Hours of Operations: @Html.TextBox("searchHoursOfOper", ViewBag.CurrentFilter as string)<br />*@
-            @Html.CheckBox("searchSingleStall", ViewBag.CurrentFilter as bool?) Single Stall Only<br />
-            @*Hand Dryer:  @Html.TextBox("searchHandDryer", ViewBag.CurrentFilter as string)<br />*@
-            @Html.CheckBox("searchChangingStation", ViewBag.CurrentFilter as bool?) Changing Station<br />
-            @Html.CheckBox("searchPurchaseNeeded", ViewBag.CurrentFilter as bool?) Purchase Needed?<br />
-            @Html.CheckBox("searchHandicapStall", ViewBag.CurrentFilter as bool?) Handicap Stall<br />
-            @Html.CheckBox("searchHygieneProducts", ViewBag.CurrentFilter as bool?) Feminine Hygiene Products<br />
-            @Html.CheckBox("searchFamilyRestroom", ViewBag.CurrentFilter as bool?) Family Restroom<br />
-            @*Overall:@Html.TextBox("searchOverallAvg", ViewBag.CurrentFilter as int?)<br /><br />*@
-            <br />
-            <input type="submit" value="Find Restrooms" />
-
-            @*@ViewBag.CurrentFilter
-            @if (ViewBag.SearchSingleStall != null)
-            {
-                ViewBag.CurrentFilter += ViewBag.SearchSingleStall;
-            }
-            @if (ViewBag.SearchChangingStation != null)
-            {
-                ViewBag.CurrentFilter += ViewBag.SearchChangingStation;
-            }
-            @if (ViewBag.SearchPurchaseNeeded != null)
-            {
-                ViewBag.CurrentFilter += ViewBag.SearchPurchaseNeeded;
-            }
-            @if (ViewBag.SearchHandicapStall != null)
-            {
-                ViewBag.CurrentFilter += ViewBag.SearchHandicapStall;
-            }
-            @if (ViewBag.SearchHygieneProducts != null)
-            {
-                ViewBag.CurrentFilter += ViewBag.SearchHygieneProducts;
-            }
-            @if (ViewBag.SearchFamilyRestroom != null)
-            {
-                ViewBag.CurrentFilter += ViewBag.SearchFamilyRestroom;
-            }*@
-        </p>
-    }
-</div>
-
-<div class="container">
-
-    @foreach (var item in Model)
-    {
-        <div class="row outside-border">
-            <div class="inside-border corners">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cell">
-                    <h4>@Html.DisplayFor(modelItem => item.EstName)</h4>
-                    <p>@Html.DisplayFor(modelItem => item.EstAddress) @Html.DisplayFor(modelItem => item.ZipCode)</p>
-                    <p>@Html.DisplayFor(modelItem => item.HoursOfOper)</p>
-                </div>
-            
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 cell">
-                    @if (item.EstImage == null)
+                @*@ViewBag.CurrentFilter
+                    @if (ViewBag.SearchSingleStall != null)
                     {
-                        <img class="img-responsive small" src="~/Images/toilet-silhouette.jpg" />
+                        ViewBag.CurrentFilter += ViewBag.SearchSingleStall;
                     }
-                    else
+                    @if (ViewBag.SearchChangingStation != null)
                     {
-                        <img class="img-responsive small" src=@Html.DisplayFor(modelItem => item.EstImage) alt="@Html.DisplayFor(modelItem => item.EstName)">
+                        ViewBag.CurrentFilter += ViewBag.SearchChangingStation;
                     }
+                    @if (ViewBag.SearchPurchaseNeeded != null)
+                    {
+                        ViewBag.CurrentFilter += ViewBag.SearchPurchaseNeeded;
+                    }
+                    @if (ViewBag.SearchHandicapStall != null)
+                    {
+                        ViewBag.CurrentFilter += ViewBag.SearchHandicapStall;
+                    }
+                    @if (ViewBag.SearchHygieneProducts != null)
+                    {
+                        ViewBag.CurrentFilter += ViewBag.SearchHygieneProducts;
+                    }
+                    @if (ViewBag.SearchFamilyRestroom != null)
+                    {
+                        ViewBag.CurrentFilter += ViewBag.SearchFamilyRestroom;
+                    }*@
+            </p>
+        }
+    </div>
 
+    <div class="container">
+
+        @foreach (var item in Model)
+        {
+            <a href="@Url.Action("Details", "EstablishmentModels", new { id = item.EstID })">
+                <div class="row outside-border">
+                    <div class="inside-border">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cell corners">
+                            <h4>@Html.DisplayFor(modelItem => item.EstName)</h4>
+                            <p>@Html.DisplayFor(modelItem => item.EstAddress) @Html.DisplayFor(modelItem => item.ZipCode)</p>
+                            <p>@Html.DisplayFor(modelItem => item.HoursOfOper)</p>
+                        </div>
+                        <div class="corners">
+                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 cell">
+                                @if (item.EstImage == null)
+                                {
+                                    <img class="img-responsive small" src="~/Images/toilet-silhouette.jpg" />
+                                }
+                                else
+                                {
+                                    <img class="img-responsive small" src=@Html.DisplayFor(modelItem => item.EstImage) alt="@Html.DisplayFor(modelItem => item.EstName)">
+                                }
+
+                            </div>
+                            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 cell ovravg">
+                                <p>@Html.DisplayNameFor(modelItem => item.OverallAvg)</p>
+                                <h2>@Html.DisplayFor(modelItem => item.OverallAvg)</h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 cell ovravg">
-                    <p>@Html.DisplayNameFor(modelItem => item.OverallAvg)</p>
-                    <h2>@Html.DisplayFor(modelItem => item.OverallAvg)</h2>
-                </div>
-            </div>
-        </div>
-    }
+            </a>
+        }
+    </div>
+
+    @*<td>
+            @Html.DisplayFor(modelItem => item.Extras)
+        </td>*@
+
+
+
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => HttpUtility.UrlDecode(Url.Action("Details", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })))
+
 </div>
-
-@*<td>
-        @Html.DisplayFor(modelItem => item.Extras)
-    </td>*@
-
-
-
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
-@Html.PagedListPager(Model, page => HttpUtility.UrlDecode(Url.Action("Details", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter})))
-
