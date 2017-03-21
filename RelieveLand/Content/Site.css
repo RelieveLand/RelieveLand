@@ -154,9 +154,9 @@ h1 {
 /*Borough Details Styling*/
 .body-content {
     background: #880015;
-    background: -webkit-linear-gradient(top, #880015, #1e1e1e, #880015);
-    background: -moz-linear-gradient(top, #880015, #1e1e1e, #880015);
-    background: linear-gradient(top, #880015, #1e1e1e, #880015);
+    background: -webkit-linear-gradient(#1e1e1e, #880015, #880015);
+    background: -moz-linear-gradient(#1e1e1e, #880015, #880015);
+    background: linear-gradient(#1e1e1e, #880015, #880015);
     padding: 0;
 }
 

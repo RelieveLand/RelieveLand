@@ -5,8 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using RelieveLand.Models;
 
+
 namespace RelieveLand.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         public ActionResult Index()
