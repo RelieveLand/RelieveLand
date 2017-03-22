@@ -5,21 +5,110 @@
 }
 
 <style>
-    .left-div{
-        background:url('@Html.DisplayFor(model => model.EstablishmentModel.EstImage)');
+    .establishments{
+        background-image:url('@Html.DisplayFor(model => model.EstablishmentModel.EstImage)');
     }
 </style>
+ 
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="thumbnail col-sm-6 col-md-6 col-lg-6 left-div">
-            <h1 class="Reviews">@Html.DisplayFor(model => model.EstablishmentModel.EstName)</h1>
-            <p class="lead">@Html.DisplayFor(model => model.EstablishmentModel.EstAddress)</p>
-            <p class="lead">@Html.DisplayFor(model => model.EstablishmentModel.BoroughPrimary)</p>
+<div class="container-fluid establishments">
+    <div class="jumbotron jumbotron-est">
+        <h1 class="reviews">@Html.DisplayFor(Model => Model.EstablishmentModel.EstName)</h1>
+        <p class="text-over">@Html.DisplayFor(model => model.EstablishmentModel.EstAddress)</p>
+        <p class="text-over">@Html.DisplayFor(model => model.EstablishmentModel.BoroughPrimary)</p>
+        @Html.ActionLink("Create Review", "Create", "ReviewModels", null, new { @class = "btn btn-default" })
+    </div>
+</div>
+<div class="container">
+        <div class="thumbnail reviewthumbnail est-details">
+        <div class="row">
+            <h4>Overall Average: @Html.DisplayFor(model => model.EstablishmentModel.OverallAvg)</h4>
+            <h4>Average Odor: @Html.DisplayFor(model => model.EstablishmentModel.OdorAvg)</h4>
+            <h4>Average Appearance: @Html.DisplayFor(model => model.EstablishmentModel.AppearAvg)</h4>
+            <hr/>
+            <p>@Html.DisplayFor(model => model.EstablishmentModel.HoursOfOper) </p>
+            @if (Model.EstablishmentModel.SingleStall == true)
+            {
+                <p>&diams;Single Stall&diams;</p>
+            }
+            @if (Model.EstablishmentModel.FamilyRestroom == true)
+            {
+                <p>&diams;Family/Unisex Restroom&diams;</p>
+            }
+            @if (Model.EstablishmentModel.ChangingStation == true)
+            {
+                <p>&diams;Changing Station&diams;</p>
+            }
+            @if (Model.EstablishmentModel.PurchaseNeeded == true)
+            {
+                <p>&diams;Purchase Needed&diams;</p>
+            }
+            @if (Model.EstablishmentModel.HandicapStall == true)
+            {
+                <p>&diams;Has Handicap Stall&diams;</p>
+            }
+            @if (Model.EstablishmentModel.HygieneProducts == true)
+            {
+                <p>&diams;Feminine Care Available&diams;</p>
+            }
+            @if (Model.EstablishmentModel.HandDryer != null)
+            {
+                <p>&diams;@Html.DisplayFor(model => model.EstablishmentModel.HandDryer)&diams;</p>
+            }
+            @if (Model.EstablishmentModel.Extras != null)
+            {
+                <p>&diams;@Html.DisplayFor(model => model.EstablishmentModel.Extras)&diams;</p>
+            }
+
+
         </div>
+       </div>
+ 
+    
+        
+  
+
+    @foreach (var item in Model.ReviewModel)
+    {
+        <div class="review-details padded thumbnail reviewthumbnail">
+            <p>Reviewed on @Html.DisplayFor(modelItem => item.ReviewTime)</p>
+            <hr />
+        <h5>@Html.DisplayFor(modelItem => item.UserName)'s<br /> ratings:</h5>
+
+    <h5>
+        @Html.DisplayNameFor(modelItem => item.OverallRating):
+        @Html.DisplayFor(modelItem => item.OverallRating)
+    </h5>
+    <h5>
+        @Html.DisplayNameFor(modelItem => item.OdorRating):
+        @Html.DisplayFor(modelItem => item.OdorRating)
+    </h5>
+    <h5>
+        @Html.DisplayNameFor(modelItem => item.AppearRating):
+        @Html.DisplayFor(modelItem => item.AppearRating)
+    </h5>
+
+    @{
+
+        if (item.UserComments != null)
+        {
+            <hr />
+            <p>@Html.DisplayNameFor(modelItem => item.UserComments):</p>
+            <p>@Html.DisplayFor(modelItem => item.UserComments)</p>
+        }
+    }
+            <hr />
+    <p>Is this your review? @Html.ActionLink("Edit it", "Edit", "ReviewModels",new { id = item.ReviewID },null)</p>
+
+</div>
+        }
+</div>
 
 
-        <div class="thumbnail col-sm-6 col-md-6 col-lg-6 right-div">
+
+        
+    
+    @*<div class="thumbnail col-sm-6 col-md-6 col-lg-6 right-div">
             <h2>@Html.DisplayFor(model => model.EstablishmentModel.EstName)</h2>
             <h4>@Html.DisplayFor(model => model.EstablishmentModel.EstAddress) @Html.DisplayFor(model => model.EstablishmentModel.ZipCode)</h4>
             <h4>
@@ -27,8 +116,7 @@
             {@ViewBag.SecondaryBoroughAdd @Html.DisplayFor(model => model.EstablishmentModel.BoroughSecondary)}
             </h4>
         </div>
-    </div>
-</div>
+    </div>*@
 
 
 

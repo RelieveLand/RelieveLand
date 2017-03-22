@@ -7,7 +7,7 @@ namespace RelieveLand.Models
 {
     public class ReviewEstablishmentViewModel
     {
-        public IQueryable<ReviewModels> ReviewModel { get; set; }
+        public IEnumerable<ReviewModels> ReviewModel { get; set; }
         public EstablishmentModels EstablishmentModel { get; set; }
     }
 }

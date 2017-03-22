@@ -29,7 +29,7 @@
         <hr />
         <footer class="text-center">
             <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                @Html.ActionLink("About RL", "About", "Home", null, new { @class = "btn btn-lg btn-default left-button" })
+                @Html.ActionLink("About", "About", "Home", null, new { @class = "btn btn-lg btn-default left-button" })
                 @Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "btn btn-lg btn-default right-button" })
             </div>
             <br />
@@ -41,5 +41,6 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/RelieveLand.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 </html>

@@ -247,75 +247,102 @@ h1 {
         border-color: #1e1e1e;
     }
 /*End of Boroughs Styling*/
+/*Establishment Review Styling*/
+.jumbotron-est {
+    background: rgba(0,0,0,0);
+    text-align: center;
+}
 
+.establishments {
+    border-radius: 0px;
+    background-size: cover;
+}
+
+.est-details {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    text-align: center;
+}
 
 /*Reviews Styling*/
-.padded{
+.padded {
     padding-left: 30px;
 }
 
-.not-padded{
+.not-padded {
     padding-left: 0px;
 }
 
-.review-details h3{
+.review-details h3 {
     color: #ffc90e;
 }
 
-#ReviewCatagoryHeader{
-    background-color:#ffffff;
-    color:#880015;
-    font-family:Cambria;
-    font-size:14px;
+#ReviewCatagoryHeader {
+    background-color: #1e1e1e;
+    color: #880015;
+    font-family: Cambria;
+    font-size: 14px;
 }
 
 .table {
-
     border: 2px solid #ffffff;
 }
 
-#UserReview{
-    margin-top:5px;
-    background-color:white;
-    color:#880015;
+#UserReview {
+    margin-top: 5px;
+    background-color: white;
+    color: #880015;
 }
 
-.jumbotron {
-    background-image: url('https://photos-3.dropbox.com/t/2/AAA0n8KPOK7QHB4w19dmrpRWD6ch0i4k0ZJF5qkcThEREQ/12/639423973/jpeg/32x32/1/_/1/2/IMG_20170315_143345~2.jpg/EIKv0qgFGP0BIAcoBw/XOFREP_3QLazVKkzPzC_rCL-xACfR6YXn93Jv1aVOZY?size=1280x960&size_mode=3');
-    background-position:bottom;
-    font-family: 'Aparajita';
+.jumbotron-reviews {
+    background: url('https://photos-3.dropbox.com/t/2/AAA0n8KPOK7QHB4w19dmrpRWD6ch0i4k0ZJF5qkcThEREQ/12/639423973/jpeg/32x32/1/_/1/2/IMG_20170315_143345~2.jpg/EIKv0qgFGP0BIAcoBw/XOFREP_3QLazVKkzPzC_rCL-xACfR6YXn93Jv1aVOZY?size=1280x960&size_mode=3') center no-repeat;
+    /*background-image: url('https://photos-3.dropbox.com/t/2/AAA0n8KPOK7QHB4w19dmrpRWD6ch0i4k0ZJF5qkcThEREQ/12/639423973/jpeg/32x32/1/_/1/2/IMG_20170315_143345~2.jpg/EIKv0qgFGP0BIAcoBw/XOFREP_3QLazVKkzPzC_rCL-xACfR6YXn93Jv1aVOZY?size=1280x960&size_mode=3');*/
+    background-position: bottom;
+    font-family: 'Lobster',cursive;
     color: white;
     font-size: 30px;
     font-weight: lighter;
     text-align: right;
-    background-color: black;
+    background-color: #1e1e1e;
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
 
-.Reviews{
-    background-color:rgba(136, 0, 21, 0.84);
-    display:inline-block;
-    padding-left:5px;
-    padding-right:5px;
-    padding-bottom:8px;  
-    padding-top:0px;
-    border-radius: 15px;  
+.reviews {
+    font-family: 'Lobster',cursive;
+    background-color: rgba(136, 0, 21, 0.6);
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-radius: 5px;
 }
 
-.label-primary{
-    border-radius:0px;
-    color:#ffffff;
-    background-color:#891729;
-    font-family:'Sansita';
-    font-weight:100;
+.label-primary {
+    border-radius: 0px;
+    color: #ffffff;
+    background-color: #880015;
+    font-family: 'Sansita', sans-serif;
+    font-weight: 100;
 }
 
-.lead{
-    font-family:'Lobster';
-    opacity:.9;
+.lead {
+    font-family: 'Sansita', sans-serif;
+    opacity: 0.9;
 }
 
+.reviewthumbnail {
+    background: rgba(255,255,255,.8);
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+    .reviewthumbnail hr {
+        border-top: 1px solid black;
+            margin-top: 5px;
+    }
 /*Button Styling*/
 .btn-default {
     background-color: #880015;
@@ -335,6 +362,14 @@ h1 {
     max-width: 90%;
     margin-left: 4%;
     margin-right: 4%;
+}
+
+input[type="checkbox"] {
+    -webkit-transform: scale(3);
+    -ms-transform: scale(3); /* IE */
+    -moz-transform: scale(3); /* FF */
+    -o-transform: scale(3); /* Opera */
+    padding: 10px;
 }
 
 
