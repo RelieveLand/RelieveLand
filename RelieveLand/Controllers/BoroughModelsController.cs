@@ -109,12 +109,12 @@ namespace RelieveLand.Controllers
             //    results = results.Where(x => x.SingleStall == searchSingleStall);
             //}
             //if (searchString != null)
-            
+
             ViewBag.CurrentFilter = searchString;
 
             int pageSize = 5;
             int pageNumber = (page ?? 1);
-            
+
             return View(results.OrderByDescending(s => s.OverallAvg).ToPagedList(pageNumber, pageSize));
         }
 

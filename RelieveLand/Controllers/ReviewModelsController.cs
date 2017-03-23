@@ -179,6 +179,11 @@ namespace RelieveLand.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (db.ReviewModels.Find(id).UserName != User.Identity.Name.ToString())
+            {
+                return HttpNotFound();
+            }
+
             ReviewModels reviewModels = db.ReviewModels.Find(id);
             db.ReviewModels.Remove(reviewModels);
             db.SaveChanges();
