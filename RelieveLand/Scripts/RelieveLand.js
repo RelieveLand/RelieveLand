@@ -12,6 +12,12 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
+$(document).ready(function () {
+
+    $(".reviews").animate({ left: '0px' }, 1250);
+    $(".text-over").delay(1250).animate({ right: '0px' }, 1250);
+});
+
 /*For Google API sign-in*/
 //function onSignIn(googleUser) {
 //    var profile = googleUser.getBasicProfile();

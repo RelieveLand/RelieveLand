@@ -87,7 +87,7 @@ namespace RelieveLand.Controllers
             if (searchPurchaseNeeded == true)
             {
                 searchString += "&searchPurchaseNeeded=true&";
-                results = results.Where(s => s.PurchaseNeeded == searchPurchaseNeeded);
+                results = results.Where(s => s.PurchaseNeeded == false);
             }
             if (searchHandicapStall == true)
             {
